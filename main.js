@@ -1,6 +1,11 @@
 let botonEstudiante= document.querySelector("#enviar-estudiante")
 let botonCurso= document.querySelector("#enviar-curso")
 let checkbox= document.querySelector("#checkbox__cursos")
+let selec= document.querySelector("#selec-inputs")
+let botonSelec= document.querySelector("#boton-selec")
+let tabla= document.querySelector(".tabla")
+
+
 
 
 let datosEstudiante= document.querySelectorAll(".input_estudiante")
@@ -20,6 +25,7 @@ class Estudiante{
         this.cursos=cursos
     }
 }
+
 class Curso{
     constructor(codigo,nombre,especialidad,duracion,credito){
         this.codigo=codigo
@@ -35,6 +41,9 @@ class Curso{
 function comprobarArrays(){
     if(!arrayCurso){
         arrayCurso=[]
+
+    }else{
+        agregarrSelect()
     }
     if(!arrayEstudiante){
         arrayEstudiante=[]
@@ -43,10 +52,16 @@ function comprobarArrays(){
 }
 
 botonEstudiante.addEventListener("click",()=>{
+    // let check=document.querySelectorAll(".check")
+    // check.addEventListener("click",()=>{
+        
+    // })
+    // console.log(check)
     let nombre=datosEstudiante[0].value
     let codigoE=datosEstudiante[1].value
     let estudiante= new Estudiante(codigoE,nombre)
     arrayEstudiante.push(estudiante)
+    localStorage.setItem("estudiante",JSON.stringify(arrayEstudiante))
     console.log(arrayEstudiante)
     borrarInputs()
 })
@@ -63,6 +78,8 @@ botonCurso.addEventListener("click",()=>{
     localStorage.setItem("curso",JSON.stringify(arrayCurso))
     borrar()
     añadirCheckbox(arrayCurso)
+    borrar2()
+    agregarrSelect()
     borrarInputs()
 })
 
@@ -72,23 +89,44 @@ function borrar(){
         checkbox.removeChild(element)
     });
 }
+function borrar2(){
+    let opti = document.querySelectorAll(".options")
+    opti.forEach(element => {
+        selec.removeChild(element)
+    });
+}
 
 function añadirCheckbox(arrayCurso){
     
     arrayCurso.forEach(element => {
         let div = document.createElement("div")
         div.classList.add("conten-check")
+
         let input = document.createElement("input")
         input.type="checkbox"
+        input.classList.add("check")
     
         let p = document.createElement("p")
         p.textContent=element.nombre
+        p.classList.add("cursoss")
         
         div.appendChild(input)
         div.appendChild(p)
         checkbox.appendChild(div)
     });
-}   
+}  
+
+function agregarrSelect(){ 
+    arrayCurso.forEach(element => {
+        let option = document.createElement("option")
+        option.classList.add("options")
+        option.value=element.nombre
+        option.textContent=element.nombre
+        selec.appendChild(option)
+        console.log(element)
+    });
+}
+
 function borrarInputs(){
 
     datosEstudiante.forEach(element => {
@@ -99,3 +137,18 @@ function borrarInputs(){
         element.value= " "
     });
 }
+
+botonSelec.addEventListener("click",()=>{
+    arrayEstudiante.forEach(element => {
+        tabla.innerHTML+=`<tr>
+        <th scope="row">${element.nombre}</th>
+        <td>Fecha</td>
+        <td>Fecha</td>
+        <td>Fecha</td>
+        <td>Fecha</td>
+        <td>Fecha</td>
+        <td>Fecha</td>
+        <td>Fecha</td>
+      </tr>`
+    });
+})

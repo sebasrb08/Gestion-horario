@@ -8,13 +8,12 @@
     <title>Delavida</title>
 </head>
 <body>
-    <div class="container mt-5 d-flex flex-column align-items-center">
+    <div class="container mt-5">
         <div class="title d-flex justify-content-center">
             <h1>Ingeniería Sistemas</h1>
         </div>
 
-        <div id="botones" class="d-flex gap-3 p-5">
-            <button class="btn">Ver inscritos</button>
+        <div id="botones" class="d-flex gap-3 p-5 d-flex justify-content-center">
             <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Agregar estudiantes</button>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -90,11 +89,11 @@
               </div>
         </div>
         <div class="cursos mb-5 ">
-          <div class=" d-flex gap-1">
+          <div class=" d-flex justify-content-center gap-2">
             <label for="">Escoge el curso</label>
-            <select class="form-select w-25" id="selec-inputs" aria-label="Default select example">
+            <select class="form-select w-25 text-dark" id="selec-inputs" aria-label="Default select example">
             </select>
-            <button class="btn">Enviar</button>
+            <button class="btn" id="boton-selec">Enviar</button>
           </div>
         </div>
 
@@ -111,37 +110,8 @@
               <th scope="col">Domingo</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-            
-            </tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-            </tr>
+          <tbody class="tabla">
+        
           </tbody>
         </table>
     </div>
