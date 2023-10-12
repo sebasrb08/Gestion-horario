@@ -1,3 +1,9 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #ffff;
+}
 :root{
     --primary-100:#892CDC;
     --primary-200:#BC6FF1;
@@ -28,4 +34,12 @@ body{
     background-color: var(--primary-200);
     color: #fff4ff;
 
+}
+.conten-check{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+p{
+    margin: 0;
 }

@@ -8,12 +8,12 @@
     <title>Delavida</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-5 d-flex flex-column align-items-center">
         <div class="title d-flex justify-content-center">
             <h1>Ingeniería Sistemas</h1>
         </div>
 
-        <div id="botones" class="d-flex gap-3">
+        <div id="botones" class="d-flex gap-3 p-5">
             <button class="btn">Ver inscritos</button>
             <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Agregar estudiantes</button>
 
@@ -27,18 +27,21 @@
                     <div class="modal-body">
                       <form>
                         <div class="mb-3">
-                          <label for="recipient-name" class="col-form-label">Nombre</label>
-                          <input type="text" class="form-control" id="recipient-name">
+                          <label for="recipient-name"  class="col-form-label">Nombre</label>
+                          <input type="text" class="form-control input_estudiante" id="recipient-name">
                         </div>
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Codigo</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <input type="text" class="form-control input_estudiante" id="recipient-name">
+                        </div>
+                        <div class="mb-3" id="checkbox__cursos">
+
                         </div>
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Send message</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      <button type="button" id="enviar-estudiante" class="btn btn-primary">Enviar</button>
                     </div>
                   </div>
                 </div>
@@ -56,35 +59,94 @@
                     <div class="modal-body">
                       <form>
                         <div class="mb-3">
+                          <label for="recipient-name" class="col-form-label">Codigo</label>
+                          <input type="text" class="form-control datos-curso" id="recipient-name">
+                        </div>
+
+                        <div class="mb-3">
                           <label for="recipient-name" class="col-form-label">Nombre</label>
-                          <input type="text" class="form-control" id="recipient-name">
+                          <input type="text" class="form-control datos-curso" id="recipient-name">
                         </div>
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Especialidad</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <input type="text" class="form-control datos-curso" id="recipient-name">
                         </div>
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Duracion</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <input type="text" class="form-control datos-curso" id="recipient-name">
                         </div>
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Creditos</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <input type="text" class="form-control datos-curso" id="recipient-name">
                         </div>
                       </form>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Send message</button>
+                      <button type="button" class="btn btn-primary" id="enviar-curso">Send message</button>
                     </div>
                   </div>
                 </div>
               </div>
         </div>
+        <div class="cursos mb-5 ">
+          <div class=" d-flex gap-1">
+            <label for="">Escoge el curso</label>
+            <select class="form-select w-25" id="selec-inputs" aria-label="Default select example">
+            </select>
+            <button class="btn">Enviar</button>
+          </div>
+        </div>
 
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Lunes</th>
+              <th scope="col">Martes</th>
+              <th scope="col">Miercoles</th>
+              <th scope="col">Jueves</th>
+              <th scope="col">Viernes</th>
+              <th scope="col">Sabado</th>
+              <th scope="col">Domingo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>@mdo</td>
+            
+            </tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>@mdo</td>
+            </tr>
+          </tbody>
+        </table>
     </div>
     
-    
+    <script src="./main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
