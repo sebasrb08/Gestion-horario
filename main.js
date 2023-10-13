@@ -52,20 +52,28 @@ function comprobarArrays(){
 }
 
 botonEstudiante.addEventListener("click",()=>{
-    // let check=document.querySelectorAll(".check")
-    // check.addEventListener("click",()=>{
-        
-    // })
-    // console.log(check)
+    let checkArray=checkedSeleccionado()
     let nombre=datosEstudiante[0].value
     let codigoE=datosEstudiante[1].value
-    let estudiante= new Estudiante(codigoE,nombre)
+
+    let estudiante= new Estudiante(codigoE,nombre,checkArray)
     arrayEstudiante.push(estudiante)
     localStorage.setItem("estudiante",JSON.stringify(arrayEstudiante))
     console.log(arrayEstudiante)
     borrarInputs()
 })
 
+function checkedSeleccionado(){
+    let check=document.querySelectorAll(".check")
+    checkedArray=[]
+    check.forEach(element => {
+        if (element.checked == true){
+            let padre=element.parentNode
+            checkedArray.push(padre.lastChild.textContent)
+        }
+    });
+    return checkedArray
+}
 
 botonCurso.addEventListener("click",()=>{
     let nombre=datoscurso[0].value
@@ -139,10 +147,12 @@ function borrarInputs(){
 }
 
 botonSelec.addEventListener("click",()=>{
-    arrayEstudiante.forEach(element => {
-        tabla.innerHTML+=`<tr>
+    borrarTr()
+    let newArray=encontrarCursos()
+    newArray.forEach(element => {
+        tabla.innerHTML+=`<tr class="tr">
         <th scope="row">${element.nombre}</th>
-        <td>Fecha</td>
+        <td data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">Fecha</td>
         <td>Fecha</td>
         <td>Fecha</td>
         <td>Fecha</td>
@@ -152,3 +162,22 @@ botonSelec.addEventListener("click",()=>{
       </tr>`
     });
 })
+
+function encontrarCursos(){
+    let newArray=[]
+    arrayEstudiante.forEach(element => {
+        let arr = element.cursos
+        indice = arr.findIndex(resol => resol == selec.value)
+        if (indice != -1){
+            newArray.push(element)
+        }
+    });
+    return newArray
+
+}
+function borrarTr(){
+    let tr=document.querySelectorAll(".tr")
+    tr.forEach(element => {
+       tabla.removeChild(element) 
+    });
+}
